@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Cave entrance: a dark arch on a light disc, readable against busy topo tiles at small
+     sizes. Deliberately high-contrast rather than pretty — this gets read at arm's length,
+     outdoors, in sunlight. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="28dp"
+    android:height="28dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M12,1.5 a10.5,10.5 0 1,0 0.01,0 Z" />
+    <path
+        android:fillColor="#1B4332"
+        android:pathData="M12,3 a9,9 0 1,0 0.01,0 Z M12,5 a7,7 0 1,1 -0.01,0 Z" />
+    <!-- the arch / mouth -->
+    <path
+        android:fillColor="#1B4332"
+        android:pathData="M12,8 C9.8,8 8,10 8,12.6 L8,16 L10.3,16 L10.3,13.2 C10.3,11.8 11,11 12,11 C13,11 13.7,11.8 13.7,13.2 L13.7,16 L16,16 L16,12.6 C16,10 14.2,8 12,8 Z" />
+</vector>

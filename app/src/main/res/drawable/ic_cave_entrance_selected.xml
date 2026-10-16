@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Focused cave: same silhouette as ic_cave_entrance so it reads as the same kind of thing,
+     but red and slightly larger so it is findable at a glance while its detail card is open. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="34dp"
+    android:height="34dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M12,1.5 a10.5,10.5 0 1,0 0.01,0 Z" />
+    <path
+        android:fillColor="#C62828"
+        android:pathData="M12,3 a9,9 0 1,0 0.01,0 Z M12,5 a7,7 0 1,1 -0.01,0 Z" />
+    <path
+        android:fillColor="#C62828"
+        android:pathData="M12,8 C9.8,8 8,10 8,12.6 L8,16 L10.3,16 L10.3,13.2 C10.3,11.8 11,11 12,11 C13,11 13.7,11.8 13.7,13.2 L13.7,16 L16,16 L16,12.6 C16,10 14.2,8 12,8 Z" />
+</vector>

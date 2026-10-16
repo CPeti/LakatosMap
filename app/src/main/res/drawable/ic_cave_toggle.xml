@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Single-colour cave arch for the show/hide-caves button; tinted by Compose for on/off. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M12,4 C7.6,4 4,7.8 4,12.5 L4,20 L8.5,20 L8.5,14 C8.5,11.8 10,10.2 12,10.2 C14,10.2 15.5,11.8 15.5,14 L15.5,20 L20,20 L20,12.5 C20,7.8 16.4,4 12,4 Z" />
+</vector>
