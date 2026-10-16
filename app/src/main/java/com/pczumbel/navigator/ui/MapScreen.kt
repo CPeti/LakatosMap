@@ -396,6 +396,9 @@ fun MapScreen(
     // old 1 km border dropped six real caves. Re-fetching Hungary fixes both. Silent no-op when
     // the catalogue is already current; if it fails (no signal) it simply retries next launch.
     LaunchedEffect(Unit) {
+        // Fresh install: caves come from the catalogue bundled in the APK, no network needed.
+        runCatching { caveRepo.seedFromBundleIfEmpty() }
+            .onSuccess { if (it > 0) caveStatus = "Loaded $it cave entrances" }
         if (caveRepo.needsTagRefresh() && !fetchingCaves) {
             fetchingCaves = true
             val result = caveRepo.downloadHungary(System.currentTimeMillis()) { caveStatus = "Updating cave details: $it" }

@@ -30,7 +30,11 @@ object OverpassClient {
     private val json = Json { ignoreUnknownKeys = true }
 
     @Serializable
-    private data class OverpassResponse(val elements: List<Element> = emptyList())
+    private data class OverpassResponse(
+        val elements: List<Element> = emptyList(),
+        /** Set only in the bundled catalogue (tools/update_bundled_caves.py). */
+        val generatedAtMs: Long? = null,
+    )
 
     @Serializable
     private data class Element(
@@ -104,10 +108,17 @@ object OverpassClient {
                 val body = connection.inputStream.bufferedReader().use { it.readText() }
                 connection.disconnect()
 
-                json.decodeFromString<OverpassResponse>(body).elements
-                    .mapNotNull { it.toCave(nowMs) }
+                parseCaves(body, nowMs)
             }
         }
+
+    /** Overpass JSON to caves; also reads the bundled catalogue, which keeps the same shape. */
+    fun parseCaves(body: String, nowMs: Long): List<Cave> =
+        json.decodeFromString<OverpassResponse>(body).elements.mapNotNull { it.toCave(nowMs) }
+
+    /** The bundled catalogue's build time, so its caves are dated to the snapshot, not the install. */
+    fun parseGeneratedAt(body: String): Long? =
+        json.decodeFromString<OverpassResponse>(body).generatedAtMs
 
     private fun Element.toCave(nowMs: Long): Cave? {
         val latitude = lat ?: return null

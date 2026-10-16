@@ -235,6 +235,19 @@ which they are available offline forever.
 Overpass is volunteer-run and rate-limited. The app queries once per area on an explicit tap,
 never on a timer; a 429 or 504 is surfaced to the user as "wait a minute and retry".
 
+### Bundled catalogue
+
+The APK ships a snapshot of all Hungarian entrances (`assets/caves_hu.json`, ~720 kB raw,
+~90 kB compressed in the APK), loaded on first launch into an empty catalogue, so a fresh
+install has caves without any network. An existing catalogue is never overwritten; "Fetch
+cave entrances…" still refreshes from Overpass. Regenerate the snapshot before each release:
+
+```
+python tools/update_bundled_caves.py
+```
+
+It runs the same query and the same border clip as the in-app "All of Hungary" fetch.
+
 ## Position and orientation
 
 The locate button cycles **off → follow → follow + rotate**, like every other map app.
